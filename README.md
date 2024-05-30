@@ -1,6 +1,6 @@
-# gemastik
+**FRESHFLOW**
 
-A new Flutter project.
+Freshflow : Sistem terintegrasi penghubung langsung petani dan customer bisnis
 
 ## Getting Started
 
