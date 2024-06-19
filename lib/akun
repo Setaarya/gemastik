@@ -1,0 +1,38 @@
+import tkinter as tk
+from tkinter import messagebox
+
+class AccountMenuApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Account Menu Example")
+        self.root.geometry("300x200")
+
+        self.create_menu()
+
+    def create_menu(self):
+        menubar = tk.Menu(self.root)
+        
+        account_menu = tk.Menu(menubar, tearoff=0)
+        account_menu.add_command(label="Profile", command=self.show_profile)
+        account_menu.add_command(label="Settings", command=self.show_settings)
+        account_menu.add_separator()
+        account_menu.add_command(label="Logout", command=self.logout)
+        
+        menubar.add_cascade(label="Account", menu=account_menu)
+        self.root.config(menu=menubar)
+
+    def show_profile(self):
+        messagebox.showinfo("Profile", "This is the profile page.")
+
+    def show_settings(self):
+        messagebox.showinfo("Settings", "This is the settings page.")
+
+    def logout(self):
+        result = messagebox.askquestion("Logout", "Are you sure you want to logout?", icon='warning')
+        if result == 'yes':
+            self.root.quit()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AccountMenuApp(root)
+    root.mainloop()
